@@ -21,6 +21,10 @@ const taskModel = {
     update : async(id, tarefa, realizada) => {
         await db.query('UPDATE tasks set tarefa=?, realizada=? WHERE id=?',[tarefa,realizada,id]);
         return new Task(id,tarefa,realizada);
+    },
+    delete : async(id) => {
+        const [result] = await db.query('DELETE FROM tasks WHERE id=?',[id]);
+        return result.affectedRows > 0;
     }
 
 };

@@ -31,4 +31,16 @@ exports.updateTask = async (req,res) => {
     } catch (error){
         res.status(500).json({erro: error.message});
     }
-}
+};
+
+exports.deleteTask = async (req,res) => {
+    try{
+        const {id} = req.params;
+        const sucess = await Task.delete(id);
+        if (!sucess) 
+            return res.status(404).json({erro : "Registo não encontrado"});
+        return res.status(204).send();
+    } catch (error){
+        res.status(500).json({erro: error.message});
+    }
+};
