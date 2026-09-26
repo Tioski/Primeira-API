@@ -1,0 +1,191 @@
+/* 
+  Estilos usando cores e design baseados na imagem de referência.
+*/
+
+/* Reset básico para tirar margens padrões dos navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif; /* Usando a fonte Inter importada no HTML */
+}
+
+/* Cor de fundo principal da página (um tom de azul/verde escuro) */
+body {
+    background-color: #224b54;
+    color: #ffffff; /* Letras brancas para dar contraste */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    min-height: 100vh; /* Ocupa pelo menos a tela toda */
+    padding: 20px;
+}
+
+/* Container do aplicativo, controlando a largura máxima */
+.app-container {
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Estilos do cabeçalho */
+header h1 {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre o ícone as palavras */
+    margin-bottom: 20px;
+}
+
+/* Destaque para cores de ícones no cabeçalho ou inputs num tom mais suave */
+header h1 i {
+    color: #aed6dc; /* Um azul mais clarinho para o ícone do título caso queira um tom diferente */
+}
+
+/* --- Card de Sumário (Concluídas) --- */
+.summary-card {
+    border: 1px solid #5a7b80; /* Borda acinzentada */
+    border-radius: 10px; /* Bordas arredondadas */
+    padding: 24px;
+    display: flex;
+    justify-content: space-between; /* Texto de um lado, bolinha do outro */
+    align-items: center; /* Alinhamento vertical centralizado */
+    margin-bottom: 30px;
+}
+
+.summary-text h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.summary-text p {
+    font-size: 0.9rem;
+    color: #c4d7d9; /* Cor do subtítulo um pouco apagada */
+}
+
+/* O círculo laranja contador */
+.summary-counter {
+    background-color: #f09e2b; /* Laranja da imagem */
+    width: 80px;
+    height: 80px;
+    border-radius: 50%; /* Torna quadrado em círculo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #224b54; /* Texto do contador escuro (igual ao fundo principal) para dar contraste real */
+}
+
+/* --- Área de Input (Adicionar/Editar Tarefa) --- */
+.input-area {
+    margin-bottom: 30px;
+}
+
+.input-area label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    color: #c4d7d9;
+}
+
+/* O formulário vai usar o flexbox para colocar o campo de texto e o botão ladeados */
+#task-form {
+    display: flex;
+    gap: 10px;
+}
+
+#task-input {
+    flex: 1; /* Faz o input ocupar o máximo de espaço possível */
+    background-color: #1a3c44; /* Fundo do input um pouco mais escuro que o background */
+    border: 1px solid #c4d7d9;
+    border-radius: 8px;
+    padding: 12px 15px;
+    color: white;
+    font-size: 1rem;
+    outline: none; /* Remove a borda azul do navegador quando clica */
+}
+
+#task-input::placeholder {
+    color: #7b9fa3;
+}
+
+#task-submit-btn {
+    background-color: #f09e2b; /* Mesma cor laranja do círculo */
+    border: none;
+    border-radius: 8px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; /* Muda cursor para a mãozinha na hora de clicar */
+    color: #224b54;
+    font-size: 1.2rem;
+    transition: filter 0.2s; /* Animação suave */
+}
+
+#task-submit-btn:hover {
+    filter: brightness(1.1); /* Dá um brilho quando passa o mouse por cima */
+}
+
+/* --- Lista de Terfas --- */
+.task-list {
+    list-style: none; /* Remove o pontinho padrão de listas 'ul' */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaço entre as tarefas */
+}
+
+/* Card Individual de cada tarefa */
+.task-item {
+    background-color: transparent; /* O fundo pode ser igual a do body mas usa borda na referência */
+    border: 1px solid #f09e2b; /* Algumas bordas ou borda mais amarela dependendo do status e na referência é amarelo p/ todas ou apenas pro Check? Optamos por uma borda suave.*/
+    border-color: #5a7b80; /* Usaremos borda amarela apenas no circle ou se quisermos na borda inteira. Mas a referência tem borda de card. */
+    border-radius: 8px;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Conteúdo da esquerda: botão de check e o texto */
+.task-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.task-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Botões da lista de tarefas */
+.task-item button {
+    background: none;
+    border: none;
+    color: #c4d7d9;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+/* O botão de check varia de cor */
+.check-btn {
+    color: #f09e2b !important; /* Laranja para o check*/
+}
+
+.task-item button:hover {
+    color: #ffffff; /* Fica branco ao passar o mouse para dar feedback que é clicável */
+}
+
+/* Estilo para quando a tarefa está concluída */
+.task-item.completed .task-text {
+    text-decoration: line-through; /* Risca o texto indicando concluído */
+    opacity: 0.6; /* Deixa um pouco transparente */
+}
+
+.task-item.completed {
+    border-color: #aed6dc; /* Muda levemente a borda se desejado */
+    opacity: 0.8;
+}
+

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo App</title>
+
+    <!-- Link para o Google Fonts: Fonte 'Inter' para ficar moderno e legível -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome para os ícones, conforme solicitado -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Nosso arquivo de estilos CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Container central do nosso App -->
+    <div class="app-container">
+
+        <!-- Cabeçalho com o ícone de Check e o Título -->
+        <header>
+            <h1><i class="fa-solid fa-square-check"></i> ToDo App</h1>
+        </header>
+
+        <!-- Seção de sumário: mostra a quantidade de tarefas concluídas -->
+        <section class="summary-card">
+            <div class="summary-text">
+                <h2>Concluídas</h2>
+                <p>Continue assim, não desista!</p>
+            </div>
+            <!-- Círculo laranja com a contagem -->
+            <div class="summary-counter">
+                <span id="counter-text">0/0</span>
+            </div>
+        </section>
+
+        <!-- Formulário para adicionar ou editar uma tarefa -->
+        <section class="input-area">
+            <label for="task-input">Adicione sua tarefa</label>
+            <form id="task-form">
+                <input type="text" id="task-input" placeholder="Digite sua tarefa..." required>
+                <button type="submit" id="task-submit-btn">
+                    <i class="fa-solid fa-check"></i>
+                </button>
+            </form>
+        </section>
+
+        <!-- Lista de tarefas: será preenchida pelo Javascript -->
+        <ul class="task-list" id="task-list">
+            <!-- Exemplo de item (comentado) que será gerado pelo JS:
+            <li class="task-item">
+                <div class="task-content">
+                    <button class="check-btn"><i class="fa-regular fa-circle"></i></button>
+                    <span class="task-text">Ler um capítulo de um livro</span>
+                </div>
+                <div class="task-actions">
+                    <button class="edit-btn"><i class="fa-regular fa-pen-to-square"></i></button>
+                    <button class="delete-btn"><i class="fa-regular fa-trash-can"></i></button>
+                </div>
+            </li>
+            -->
+        </ul>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.20.0/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
